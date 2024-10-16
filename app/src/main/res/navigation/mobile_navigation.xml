@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/intentFragment"
-        android:name="com.sample.criminalintent.IntentFragment"
+        android:name="com.sample.criminalintent.ItemIntentFragment"
         android:label="fragment_intent"
         tools:layout="@layout/fragment_intent" />
 </navigation>

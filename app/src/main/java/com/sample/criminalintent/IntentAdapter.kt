@@ -15,7 +15,14 @@ import com.sample.criminalintent.databinding.ItemIntentBinding
 import com.sample.criminalintent.Intent
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
+import java.sql.Timestamp
+import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.Date
+import java.util.Locale
 
 class IntentAdapter(private var intents: List<Intent>, private var intentListener: IntentListener) : ListAdapter<Intent, IntentAdapter.IntentViewHolder>(
     MovieDiffCallback()
@@ -33,7 +40,7 @@ class IntentAdapter(private var intents: List<Intent>, private var intentListene
 
     override fun getItemCount(): Int = intents.size
 
-    fun updateMovies(newIntents: List<Intent>) {
+    fun updateIntents(newIntents: List<Intent>) {
         intents = newIntents
         notifyDataSetChanged()
     }
@@ -43,17 +50,6 @@ class IntentAdapter(private var intents: List<Intent>, private var intentListene
     }
 
     companion object{
-        @JvmStatic
-        @BindingAdapter("setImage")
-        fun setImage(imageView: ShapeableImageView, image: String?) {
-            if (image == null) {
-                Glide.with(imageView.context).clear(imageView)
-            }
-            Glide.with(imageView.context)
-                .load(image)
-                .into(imageView)
-
-        }
         @JvmStatic
         @BindingAdapter("setDoneCondition")
         fun setFavouriteCondition(imageView: ShapeableImageView, isDone: Boolean) {
@@ -83,11 +79,13 @@ class IntentAdapter(private var intents: List<Intent>, private var intentListene
         }
         @JvmStatic
         @BindingAdapter("setDateTime")
-        fun setReleaseDate(textView: TextView, dateTime: Date?) {
+        fun setReleaseDate(textView: TextView, dateTime: Long?) {
             if (dateTime == null) {
                 textView.text = "No date and time"
             } else {
-                textView.text = "$dateTime"
+                val date = Date(dateTime)
+                val formatter = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+                textView.text = formatter.format(date);
             }
         }
     }

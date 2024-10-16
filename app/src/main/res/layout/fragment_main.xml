@@ -16,7 +16,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
+        android:contentDescription="Add New Intent Report"
         android:src="@drawable/ic_add"
+        android:backgroundTint="@color/red_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

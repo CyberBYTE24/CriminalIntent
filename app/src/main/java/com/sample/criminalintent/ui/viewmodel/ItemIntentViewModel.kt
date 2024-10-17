@@ -1,9 +1,17 @@
 package com.sample.criminalintent.ui.viewmodel
 
+import android.Manifest
+import android.content.Context
+import android.content.DialogInterface
+import android.content.pm.PackageManager
+import android.graphics.Camera
 import android.util.Log
 import android.view.View
 import android.widget.DatePicker
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,6 +22,7 @@ import com.sample.criminalintent.usecase.SaveIntentsToDbUseCase
 import com.sample.criminalintent.data.IntentEntity
 import com.sample.criminalintent.usecase.GetIntentByIdFromDbUseCase
 import com.sample.criminalintent.usecase.GetIntentsFromDbUseCase
+import com.sample.criminalintent.usecase.RemoveIntentsFromDbUseCase
 import com.sample.criminalintent.usecase.UpdateIntentsInDbUseCase
 import kotlinx.coroutines.launch
 import java.util.Calendar
@@ -24,6 +33,7 @@ class ItemIntentViewModel(
     private val saveIntentsToDbUseCase: SaveIntentsToDbUseCase,
     private val updateIntentsInDbUseCase: UpdateIntentsInDbUseCase,
     private val getIntentByIdFromDbUseCase: GetIntentByIdFromDbUseCase,
+    private val removeIntentsFromDbUseCase: RemoveIntentsFromDbUseCase,
     private val intentId: Int? = null
 ) : ViewModel() {
     var title = MutableLiveData("")
@@ -57,6 +67,8 @@ class ItemIntentViewModel(
             day.value = date.get(Calendar.DAY_OF_MONTH)
         }
     }
+
+
 
     fun saveIntent(view: View){
         val date = GregorianCalendar(year.value!!, month.value!!, day.value!!)
@@ -94,4 +106,21 @@ class ItemIntentViewModel(
         view.findNavController().navigateUp()
     }
 
+    fun removeIntent(view: View){
+        val dialogBuilder = AlertDialog.Builder(view.context)
+        dialogBuilder.setMessage("Are you sure to remove intent?")
+        dialogBuilder.setTitle("Attention")
+        dialogBuilder.setPositiveButton("Remove") { _, _ -> removeInternal(view) }
+        dialogBuilder.setNegativeButton("Cancel") { _, _ -> }
+
+        dialogBuilder.create().show()
+    }
+
+    private fun removeInternal(view: View){
+        viewModelScope.launch {
+            removeIntentsFromDbUseCase.invoke(listOf(intentEntity!!))
+            Toast.makeText(view.context, "Removed", Toast.LENGTH_SHORT).show()
+            view.findNavController().navigateUp()
+        }
+    }
 }

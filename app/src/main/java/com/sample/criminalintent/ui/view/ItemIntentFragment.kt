@@ -1,11 +1,13 @@
-package com.sample.criminalintent
+package com.sample.criminalintent.ui.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.sample.criminalintent.usecase.SaveIntentsToDbUseCase
 import com.sample.criminalintent.databinding.FragmentIntentBinding
+import com.sample.criminalintent.ui.viewmodel.ItemIntentViewModel
 import org.kodein.di.DIAware
 import org.kodein.di.android.x.closestDI
 import org.kodein.di.instance

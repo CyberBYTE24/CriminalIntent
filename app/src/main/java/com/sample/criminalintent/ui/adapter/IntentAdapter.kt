@@ -1,4 +1,4 @@
-package com.sample.criminalintent
+package com.sample.criminalintent.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,19 +8,11 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.sample.criminalintent.IntentListener
-import com.sample.criminalintent.R
 import com.sample.criminalintent.databinding.ItemIntentBinding
-import com.sample.criminalintent.Intent
+import com.sample.criminalintent.model.Intent
 import com.google.android.material.imageview.ShapeableImageView
-import com.google.android.material.textview.MaterialTextView
-import java.sql.Timestamp
 import java.text.SimpleDateFormat
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
 import java.util.Date
 import java.util.Locale
 

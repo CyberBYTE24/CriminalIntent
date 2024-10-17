@@ -1,7 +1,4 @@
-package com.sample.criminalintent
-
-import java.sql.Timestamp
-import java.util.Date
+package com.sample.criminalintent.model
 
 data class Intent(
     val id : Int,

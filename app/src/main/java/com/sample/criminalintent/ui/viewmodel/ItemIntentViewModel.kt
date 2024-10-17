@@ -1,12 +1,13 @@
-package com.sample.criminalintent
+package com.sample.criminalintent.ui.viewmodel
 
 import android.util.Log
 import android.view.View
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sample.criminalintent.usecase.SaveIntentsToDbUseCase
+import com.sample.criminalintent.data.IntentEntity
 import kotlinx.coroutines.launch
-import java.util.Date
 import java.util.GregorianCalendar
 
 class ItemIntentViewModel(

@@ -7,12 +7,12 @@
     <data>
         <variable
             name="viewModel"
-            type="com.sample.criminalintent.ItemIntentViewModel" />
+            type="com.sample.criminalintent.ui.viewmodel.ItemIntentViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ItemIntentFragment">
+    tools:context=".ui.view.ItemIntentFragment">
 
 
     <com.google.android.material.imageview.ShapeableImageView

@@ -1,6 +1,7 @@
-package com.sample.criminalintent
+package com.sample.criminalintent.data
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -13,6 +14,8 @@ interface IntentDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIntents(movies: List<IntentEntity>)
 
-    @androidx.room.Delete
+    @Delete
     suspend fun deleteIntents(movies: List<IntentEntity>)
+
+
 }

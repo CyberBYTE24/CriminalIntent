@@ -1,14 +1,19 @@
-package com.sample.criminalintent
+package com.sample.criminalintent.ui.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sample.criminalintent.model.Intent
+import com.sample.criminalintent.ui.adapter.IntentAdapter
+import com.sample.criminalintent.IntentListener
+import com.sample.criminalintent.R
 import com.sample.criminalintent.databinding.FragmentMainBinding
+import com.sample.criminalintent.ui.viewmodel.IntentViewModel
 import org.kodein.di.DIAware
 import org.kodein.di.android.x.closestDI
 import org.kodein.di.instance

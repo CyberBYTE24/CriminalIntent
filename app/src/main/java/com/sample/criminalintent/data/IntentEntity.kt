@@ -1,10 +1,8 @@
-package com.sample.criminalintent
+package com.sample.criminalintent.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.sql.Timestamp
-import java.util.Date
 
 @Entity(tableName = "intents")
 data class IntentEntity(

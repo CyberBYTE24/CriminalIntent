@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface IntentDao {
@@ -12,10 +13,11 @@ interface IntentDao {
     suspend fun getAllIntents(): List<IntentEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertIntents(movies: List<IntentEntity>)
+    suspend fun insertIntents(intents: List<IntentEntity>)
 
     @Delete
-    suspend fun deleteIntents(movies: List<IntentEntity>)
+    suspend fun deleteIntents(intents: List<IntentEntity>)
 
-
+    @Update
+    suspend fun updateIntents(intents: List<IntentEntity>)
 }

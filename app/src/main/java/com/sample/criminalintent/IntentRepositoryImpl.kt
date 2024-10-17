@@ -16,4 +16,8 @@ class IntentRepositoryImpl(
     override suspend fun removeIntentsFromDb(intents: List<IntentEntity>) {
         localDataSource.removeIntents(intents)
     }
+
+    override suspend fun updateIntentsInDb(intents: List<IntentEntity>) {
+        localDataSource.updateIntents(intents)
+    }
 }

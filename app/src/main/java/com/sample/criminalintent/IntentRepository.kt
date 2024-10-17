@@ -6,4 +6,5 @@ interface IntentRepository {
     suspend fun getIntentsFromDb(): List<IntentEntity>
     suspend fun saveIntentsToDb(intents: List<IntentEntity>)
     suspend fun removeIntentsFromDb(intents: List<IntentEntity>)
+    suspend fun updateIntentsInDb(intents: List<IntentEntity>)
 }

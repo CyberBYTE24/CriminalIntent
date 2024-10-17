@@ -15,4 +15,8 @@ class IntentLocalDataSource(private val intentDao: IntentDao) {
     suspend fun removeIntents(intents: List<IntentEntity>) {
         intentDao.deleteIntents(intents)
     }
+
+    suspend fun updateIntents(intents: List<IntentEntity>){
+        intentDao.updateIntents(intents)
+    }
 }

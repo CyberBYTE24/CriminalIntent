@@ -84,8 +84,7 @@ class ItemIntentViewModel(
                             title = title.value,
                             description = description.value,
                             isDone = isSolved.value!!,
-                            date = date.timeInMillis,
-                            photo = ByteArray(0)
+                            date = date.timeInMillis
                         )
                     )
                 )
@@ -94,7 +93,6 @@ class ItemIntentViewModel(
                 intentEntity.description = description.value
                 intentEntity.isDone = isSolved.value!!
                 intentEntity.date = date.timeInMillis
-                intentEntity.photo = ByteArray(0)
                 updateIntentsInDbUseCase.invoke(
                     listOf(
                         intentEntity

@@ -37,19 +37,11 @@ class IntentAdapter(private var intents: List<Intent>, private var intentListene
         notifyDataSetChanged()
     }
 
-    fun updateNotify(){
-        notifyDataSetChanged()
-    }
-
     companion object{
         @JvmStatic
         @BindingAdapter("setDoneCondition")
         fun setFavouriteCondition(imageView: ShapeableImageView, isDone: Boolean) {
-            if (isDone) {
-                imageView.isVisible = true
-            } else {
-                imageView.isVisible = false
-            }
+            imageView.isVisible = isDone
         }
         @JvmStatic
         @BindingAdapter("setTitle")

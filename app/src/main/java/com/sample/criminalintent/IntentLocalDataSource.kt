@@ -8,6 +8,10 @@ class IntentLocalDataSource(private val intentDao: IntentDao) {
         return intentDao.getAllIntents()
     }
 
+    suspend fun getIntentById(id: Int): IntentEntity{
+        return intentDao.getIntentById(id)
+    }
+
     suspend fun saveIntents(intents: List<IntentEntity>) {
         intentDao.insertIntents(intents)
     }

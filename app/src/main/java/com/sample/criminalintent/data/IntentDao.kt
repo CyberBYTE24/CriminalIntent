@@ -12,6 +12,9 @@ interface IntentDao {
     @Query("SELECT * FROM intents")
     suspend fun getAllIntents(): List<IntentEntity>
 
+    @Query("SELECT * FROM intents WHERE id = :id")
+    suspend fun getIntentById(id: Int): IntentEntity
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIntents(intents: List<IntentEntity>)
 
